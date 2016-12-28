@@ -1,0 +1,5 @@
+package Sum;
+
+public abstract class SumOfNumbers {
+
+}

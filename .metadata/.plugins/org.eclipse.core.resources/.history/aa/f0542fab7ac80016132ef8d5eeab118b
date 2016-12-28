@@ -1,0 +1,23 @@
+package example;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Alert {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\HP\\Desktop\\testing\\chromedriver.exe");
+
+		WebDriver d=new ChromeDriver();
+		d.get("http://www.tizag.com/javascriptT/javascriptalert.php");
+		d.findElement(By.xpath("html/body/table[3]/tbody/tr[1]/td[2]/table/tbody/tr/td/div[4]/form/input")).click();
+		
+		//d.switchTo().alert().getText();//to get text from the alert box
+		d.switchTo().alert().accept();//use accept method for positive scenario like OK, done,Yes
+		//d.switchTo().alert().dismiss(); use dismiss method for negative scenarios like cancel, no
+//d.switchTo().alert().sendKeys("feedback"); use this to edit feedback text box on alert
+	}
+
+}

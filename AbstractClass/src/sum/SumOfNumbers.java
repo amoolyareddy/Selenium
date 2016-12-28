@@ -1,0 +1,35 @@
+package sum;
+//abstract class
+public abstract class SumOfNumbers
+{
+
+//abstract methods
+		public abstract int SumOfTwoNumbers(int n1, int n2);
+		public abstract int SumOfThreeNumbers(int n1, int n2, int n3);
+		//Regular method
+		public void disp()
+		{
+			System.out.println("Method of class sum");
+		}
+	}
+
+	
+class AbstractDemo extends SumOfNumbers
+{
+	public int SumOfTwoNumbers(int num1, int num2)
+	{
+		return num1+num2;
+		
+	}
+	public int SumOfThreeNumbers(int num1, int num2, int num3)
+	{
+		return num1+num2+num3;
+	}
+
+ public static void main(String args[])
+ {
+	 AbstractDemo d=new AbstractDemo();
+	 d.SumOfTwoNumbers(10,20);
+	 d.SumOfThreeNumbers(10, 20, 30);
+ }
+}

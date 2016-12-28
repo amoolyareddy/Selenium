@@ -1,0 +1,24 @@
+package example;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class StaticDropdown {
+
+	public static void main(String[] args)
+	{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\HP\\Desktop\\testing\\chromedriver.exe");
+
+		WebDriver d=new ChromeDriver();
+		d.get("http://spicejet.com/");
+		d.findElement(By.xpath(".//*[@id='ctl00_mainContent_ddl_Adult']")).click();
+		Select drp=new Select(d.findElement(By.xpath(".//*[@id='ctl00_mainContent_ddl_Adult']")));
+       drp.selectByIndex(2);
+       drp.selectByValue("8");
+       drp.selectByVisibleText("9 Adults");
+	}
+
+}

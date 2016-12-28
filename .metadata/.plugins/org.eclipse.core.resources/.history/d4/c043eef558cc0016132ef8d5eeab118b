@@ -1,0 +1,22 @@
+//test case to test how many links are present in Ebay Home page
+package example;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RealTime {
+
+	public static void main(String[] args) 
+	{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\HP\\Desktop\\testing\\chromedriver.exe");
+
+		WebDriver d=new ChromeDriver();
+		d.get("http://www.ebay.com/");
+		int count=d.findElements(By.tagName("a")).size();
+		System.out.println("no of links present in the page are" +" " +count);
+		// to check how many links are present in the footer section
+		System.out.println(d.findElements(By.xpath(".//*[@id='glbfooter']")).size());
+
+	}
+
+}

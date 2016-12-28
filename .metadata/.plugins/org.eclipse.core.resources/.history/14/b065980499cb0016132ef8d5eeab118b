@@ -1,0 +1,21 @@
+package example;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class MouseHover {
+
+	public static void main(String[] args)
+	{
+	WebDriver d=new FirefoxDriver();
+	d.get("https://www.amazon.com/");
+	Actions act=new Actions(d);
+	WebElement web=d.findElement(By.xpath(".//*[@id='nav-link-accountList']"));
+	act.moveToElement(web).build().perform();
+
+	}
+
+}

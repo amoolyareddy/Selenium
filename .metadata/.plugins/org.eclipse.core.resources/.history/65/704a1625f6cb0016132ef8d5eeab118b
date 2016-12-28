@@ -1,0 +1,31 @@
+package example;
+
+
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class MulipleWindows {
+
+	public static void main(String[] args) 
+	{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\HP\\Desktop\\testing\\chromedriver.exe");
+		WebDriver d=new ChromeDriver();
+		d.get("https://accounts.google.com/SignUp");
+		d.findElement(By.xpath(".//*[@id='wrapper']/div[2]/div/div[1]/p/a")).click();
+		System.out.println(d.getTitle());
+	Set<String> id=d.getWindowHandles();
+	Iterator<String> itr=id.iterator();		
+    String parentid=itr.next();
+    String childid=itr.next();
+    d.switchTo().window(childid);
+    System.out.println(d.getTitle());
+
+	}
+}
+
+
+

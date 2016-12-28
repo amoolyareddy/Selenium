@@ -1,0 +1,38 @@
+package example;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class FormMethods {
+
+	public static void main(String[] args)
+	{
+	WebDriver d=new FirefoxDriver();	
+	d.get("https://www.makemytrip.com/flights");
+	System.out.println("before clicking multi city");
+	System.out.println(d.findElement(By.xpath(".//*[@id='return_date_sec']")).isDisplayed());
+	//isDisplayed() is used when particular object is in code base but it is in visible mode or not
+	//isDisplayed() is used to check whether the particular element is displayed or went to hidden mode and it will return boolean value(i.e true or false)
+	d.findElement(By.xpath(".//*[@id='multi_city_button']/span")).click();
+	System.out.println("after clicking multi city");
+	System.out.println(d.findElement(By.xpath(".//*[@id='return_date_sec']")).isDisplayed());
+	
+	//if you want to validate the object is present in web page or code base
+	int count=(d.findElements(By.xpath(".//*[@id='return_date_sec']")).size());
+	//if it returns 0 as size then there are no elements with such Xpath
+	//getText() is used to validate weather the text is present or not
+	Assert.assertTrue(d.findElement(By.xpath(".//*[@id='return_date_sec']")).isDisplayed());
+	//assertTrue() will always expect output as true if that is false then the remaining test case wont run
+	Assert.assertFalse(d.findElement(By.xpath(".//*[@id='return_date_sec']")).isDisplayed());
+	//assertFalse will always false as output if it is false then only rest of the script will pass
+	if(count==0)
+	{
+		System.out.println("verified");
+	}
+	
+
+	}
+
+}
